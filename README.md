@@ -4,7 +4,7 @@ A hack of the datetime latex package to enable dates to be displayed without the
 If you use
 
 ```
-\usepackate[shortnoyear]{datetimej}
+\usepackage[shortnoyear]{datetimej}
 ```
 
 in your latex header then 
