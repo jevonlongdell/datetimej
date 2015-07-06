@@ -89,6 +89,13 @@
   \@day=##1\relax\@month=##2\relax\@year=##3\relax
   \ordinaldate{\the\@day}\ \shortmonthname[\@month], \the\@year}%
 }
+\DeclareRobustCommand*{\shortdatenoyear}{%
+  \renewcommand*{\formatdate}[3]{%
+  \ifshowdow\shortdayofweekname{##1}{##2}{##3} \fi
+  \@day=##1\relax\@month=##2\relax\@year=##3\relax
+  \ordinaldate{\the\@day}\ \shortmonthname[\@month]}%
+}
+
 \let\twodigit\two@digits
 \DeclareRobustCommand*{\yyyymmdddate}{%
 \renewcommand*{\formatdate}[3]{%
@@ -460,6 +467,7 @@ settings}}
 \RequirePackage{fmtcount}
 \DeclareOption{long}{\setdefaultdate{\longdate}}
 \DeclareOption{short}{\setdefaultdate{\shortdate}}
+\DeclareOption{shortnoyear}{\setdefaultdate{\shortdatenoyear}}
 \DeclareOption{yyyymmdd}{\setdefaultdate{\yyyymmdddate}}
 \DeclareOption{ddmmyyyy}{\setdefaultdate{\ddmmyyyydate}}
 \DeclareOption{dmyyyy}{\setdefaultdate{\dmyyyydate}}
